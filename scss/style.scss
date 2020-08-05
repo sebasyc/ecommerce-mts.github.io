@@ -1,0 +1,88 @@
+@import 'variables';
+@import 'mixins';
+@import 'reset';
+
+body {
+    &.b-ecommerce-mts {
+        background-image: url(../images/bg-ecommerce.jpg);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+}
+
+.ecommerce-mts {
+    padding: 3em 0;
+    .ecommerce-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        @media (max-width: 480px) {
+            margin: 0 -15px;
+        }
+        &__col {
+            width: 33.33333%;
+            padding: 0 20px 25px;
+            @media (max-width: 991px) {
+                width: 50%;
+            }
+            @media (max-width: 768px) {
+                width: 100%;
+            }
+            @media (max-width: 480px) {
+                padding: 0 15px 20px;
+            }
+            .box-site {
+                position: relative;
+                max-height: 220px;
+                display: block;
+                overflow: hidden;
+                &:after {
+                    content: "";
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba(0,0,0,.5);
+                    top: 0;
+                    left: 0;
+                    transition: .3s;
+                }
+                &__bg {
+                    width: 100%;
+                }
+                &__logo {
+                    position: absolute;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 220px;
+                    height: 90px;
+                    padding: 1em;
+                    background-color: white;
+                    z-index: 1;
+                    transition: .3s;
+                    @include center-all;
+                    img {
+                        transform: scale(0.70);
+                        transition: .3s;
+                    }
+                }
+                &:hover {
+                    &:after {
+                        opacity: 0;
+                    }
+                    .box-site {
+                        &__logo {
+                            width: 100%;
+                            height: 100%;
+                            background-color: rgba(255,255,255,.85);
+                            img {
+                                transform: scale(0.80);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
