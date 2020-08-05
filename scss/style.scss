@@ -37,6 +37,9 @@ body {
                 max-height: 220px;
                 display: block;
                 overflow: hidden;
+                @media (max-width: 480px) {
+                    max-height: 230px;
+                }
                 &:after {
                     content: "";
                     position: absolute;
